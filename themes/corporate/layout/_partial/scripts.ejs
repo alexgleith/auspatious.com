@@ -1,0 +1,86 @@
+<!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<%- js('metronic/assets/plugins/respond.min.js') %>
+<![endif]--> 
+<%- js('metronic/assets/plugins/jquery.min.js') %>
+<%- js('metronic/assets/plugins/jquery-migrate.min.js') %>
+<%- js('metronic/assets/plugins/bootstrap/js/bootstrap.min.js') %>
+<%- js('metronic/assets/corporate/scripts/back-to-top.js') %>
+<%- js('metronic/assets/plugins/owl.carousel/owl.carousel.min.js') %>
+<%- js('metronic/assets/corporate/scripts/layout.js') %>
+<%- js('js/wow.min.js') %>
+
+<% if (theme.fancybox){ %>
+  <%- css('fancybox/jquery.fancybox') %>
+  <%- js('fancybox/jquery.fancybox.pack') %>
+<% } %>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+<% if (page.title == "Projects"){ %>
+  <%- js('metronic/assets/plugins/jquery-mixitup/jquery.mixitup.min.js') %>
+  <%- js('metronic/assets/pages/scripts/portfolio.js') %>
+  <script>
+    Portfolio.init();
+  </script>
+<% } %>
+
+
+
+<% if (page.layout == "contact"){ %>
+  <%- js('http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js') %>
+  <%- css('http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css') %>
+  <script>
+    var map;
+    $(document).ready(function(){
+
+      var popupText = 'Auspatious<br><a href="https://alexgleith.typeform.com/to/YfpsDw" target="_blank">Contact us</a>';
+
+      map = L.map('map', {
+        scrollWheelZoom: false
+      }).setView([<%= theme.lat %>, <%= theme.long %>], 8);
+      var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
+        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        minZoom: 0,
+        maxZoom: 20,
+        ext: 'png'
+      }).addTo(map);
+      var auspatiousIcon = L.icon({
+        iconUrl: '/metronic/assets/corporate/img/auspatious_icon.png',
+        iconSize:     [23, 24], // size of the icon
+      });
+      
+      L.marker([<%= theme.lat %>, <%= theme.long %>], {icon: auspatiousIcon}).addTo(map)
+        .bindPopup(popupText)
+        .openPopup();
+    });
+  </script>
+<% } %>
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+<% if (theme.swiftype_install_key) { %>
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','<%= theme.swiftype_install_key %>','2.0.0');
+    </script>
+<% } %>
+<%- partial('google-analytics') %>
+<!-- END INTEGRATIONS -->

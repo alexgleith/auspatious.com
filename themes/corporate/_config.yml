@@ -1,0 +1,44 @@
+# Header Menu
+menu:
+  Home: /
+  Projects: /tags/Projects/
+  Blog: /archives/ # can set archive-dir in root config to custom value
+  Contact: /contact/
+  About: /about/
+   
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+fancybox: true # whether or not to load the fancybox library
+
+# Integrations
+#disqus_shortname: 
+google_analytics: UA-44445011-2
+#swiftype_install_key: 
+
+# Social
+social:
+  github: https://github.com/alexgleith
+  twitter: https://twitter.com/alexgleith
+#  facebook: https://www.facebook.com/ptsteadman
+#  rss: atom.xml
+  linkedin: https://au.linkedin.com/in/alex-leith-gisp-ap-9456b612
+  stack-overflow: http://gis.stackexchange.com/users/3399/alex-leith
+
+# Miscellaneous
+color_scheme: gray   # options: blue, gray, green, orange, red, turquoise
+favicon: /favicon.ico # path from root of hexo site
+#twitter_widget_id: "678830341331820544" # as a string, from https://twitter.com/settings/widgets
+twitter_username: alexgleith # twitter username without the @
+default_author: Anonymous
+
+about: Auspatious is a spatial consulting company based in Hobart, Tasmania. <br><br> Auspatious was founded in 2016, and delivers excellence in spatial services and tech.
+phone: 0419 189 050
+email: alex@auspatious.com
+address_1: Alex Leith
+address_2: Hobart, Tasmania
+address_3: Australia
+skype: alex.g.leith
+lat: -42.88190
+long: 147.32381
