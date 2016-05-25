@@ -36,7 +36,7 @@ Robert Milne spoke about engaging communities, and using web-based spatial tech 
 There's always something awesome that you miss at these big conferences, and I would have loved to be able to see a lot of the other talks not mentioned here.
 
 ## More?
-Make sure you check out [day two's post](/2016/04/26/locate16-2/).
+Make sure you check out [day two's post](/2016/05/01/locate16-2/).
 
 
 [devops]: /images/locate16_devops.png "DevOps"
